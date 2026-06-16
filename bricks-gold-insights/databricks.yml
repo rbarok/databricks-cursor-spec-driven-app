@@ -1,0 +1,47 @@
+bundle:
+  name: bricks-gold-insights
+
+variables:
+  sql_warehouse_id:
+    description: SQL Warehouse ID
+
+resources:
+  apps:
+    app:
+      name: "bricks-gold-insights"
+      description: "Gold layer analytics dashboard for Bricks medallion data"
+      source_code_path: ./
+      # Uncomment to enable on behalf of user API scopes. Available scopes: sql, dashboards.genie, files.files, serving.serving-endpoints
+      # user_api_scopes:
+      #   - sql
+
+      # The resources which this app has access to.
+      resources:
+        - name: sql-warehouse
+          sql_warehouse:
+            id: ${var.sql_warehouse_id}
+            permission: CAN_USE
+        - name: country-metrics
+          uc_securable:
+            securable_full_name: bricks_medallion.gold-bricks.country_metrics
+            securable_type: TABLE
+            permission: SELECT
+        - name: host-property-summary
+          uc_securable:
+            securable_full_name: bricks_medallion.gold-bricks.host_property_summary
+            securable_type: TABLE
+            permission: SELECT
+        - name: user-payment-summary
+          uc_securable:
+            securable_full_name: bricks_medallion.gold-bricks.user_payment_summary
+            securable_type: TABLE
+            permission: SELECT
+
+targets:
+  default:
+    default: true
+    workspace:
+      host: ""
+
+    variables:
+      sql_warehouse_id: ""

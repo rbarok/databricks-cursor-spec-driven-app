@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+build/
+client/dist/
+
+# Local environment & secrets (never commit)
+.env
+.env.*
+!.env.example
+
+# Databricks CLI / bundle state
+.databricks/
+.databricks-resources.json
+
+# AppKit generated types (endpoint-specific, varies per developer)
+shared/appkit-types/serving.d.ts
+
+# Test artifacts
+.smoke-test/
+test-results/
+playwright-report/
+blob-report/
+coverage/
+
+# AI Dev Kit / local agent tooling
+.ai-dev-kit/
+.claude/
+.local/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive config patterns
+*conf*.json
+*.secret
+credentials.json
+claude_agent_settings.json
+mcp.json
+
+# Logs & caches
+*.log
+.eslintcache
+
+# Essential project JSON (parent repo ignores *.json)
+!package.json
+!appkit.plugins.json
+!tsconfig.json
+!tsconfig.*.json
+!.prettierrc.json
+!client/components.json
+
+CLAUDE.md

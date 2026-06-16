@@ -1,0 +1,12 @@
+---
+description: Governance and persona enforcement for unity-catalog-app
+alwaysApply: true
+---
+
+# Governance Rules
+
+1. Load `SECURITY.md` before any implementation work
+2. One persona per task — mismatch → STOP
+3. UC DDL only by Unity Catalog persona
+4. SQL reads via `config/queries/` — never custom warehouse endpoints for SELECT
+5. No secrets in repo, logs, or prompts

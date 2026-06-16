@@ -1,0 +1,19 @@
+# Python venv internals (app source under .venv/bricks-gold-insights is tracked)
+.venv/*
+
+# Governance bootstrap artifacts (local only until reviewed)
+spec-driven-bootstrap.md
+.ai-dev-kit/.installed-skills
+.cursorignore
+.cursor/skills
+repo/
+*.json
+
+#files
+bootstrap_prompt.txt
+good-practices-spec-driven.txt
+README_1.md
+README_2.md
+
+#directories
+version
